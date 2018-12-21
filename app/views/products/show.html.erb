@@ -1,0 +1,13 @@
+<h1>Showing selected product</h1>
+<p>
+ Name: <%= @product.name %>
+</p>
+<p>
+  Price: <%= @product.price %>€
+</p>
+<p>
+ Description: <%= @product.description %>
+</p>
+<%= link_to "Edit", edit_product_path(@product) %>
+<%= link_to 'Delete', product_path(@product), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to 'Back', products_path %>
