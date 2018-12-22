@@ -1,5 +1,5 @@
-<h2>Alle Produkte</h2>
-<% @product.each do |product| %>
+<h2><%= @category.name %> Produkte</h2>
+<% @product.where(category_id: @category.id).each do |product| %>
  <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
    <div class="well well-lg">

@@ -4,7 +4,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Produkte", products_path %></li>
+        <li><%= link_to "Wachs", category_path(1) %></li>
+        <li><%= link_to "Accessoires", category_path(2) %></li>
         <% if logged_in? %>
           <li><%= current_user.username %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
@@ -15,3 +16,6 @@
     </nav>
   </div>
 </header>
+<% if logged_in? %>
+  <div style="text-align: center"><%= link_to "Neues Produkt", new_product_path, class: "btn btn-success" %></div>
+<% end %>

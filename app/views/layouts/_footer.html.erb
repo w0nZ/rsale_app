@@ -1,8 +1,11 @@
+<% if logged_in? %>
+  <div style="text-align: center"><%= link_to "Neues Produkt", new_product_path, class: "btn btn-success" %></div>
+<% end %>
 <footer class="footer">
   <nav>
     <ul>
       <li><%= link_to "About",   about_path %></li>
       <li><a href="https://angebote.partylite.de/">Shop</a></li>
     </ul>
-</nav>
+  </nav>
 </footer>
