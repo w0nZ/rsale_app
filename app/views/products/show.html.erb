@@ -1,7 +1,7 @@
 <h2 align="center"><%= @product.name %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
 <p>
- Bild Platzhalter
+ <%= image_tag @product.picture.url if @product.picture? %>
 </p>
 <p>
   Price: <%= @product.price %>€

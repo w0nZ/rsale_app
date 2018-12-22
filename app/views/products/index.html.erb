@@ -4,7 +4,7 @@
   <div class="col-xs-8 col-xs-offset-2">
    <div class="well well-lg">
     <div class="product-img">
-      <%= link_to "Bild Platzhalter", product_path(product) %>
+      <%= image_tag product.picture.url if product.picture? %>
     </div>
     <div class="product-name">
       <%= link_to product.name, product_path(product) %>
