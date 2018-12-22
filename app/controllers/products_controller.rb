@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
 
   def new
     @product = Product.new
