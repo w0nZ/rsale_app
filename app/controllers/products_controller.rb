@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    #@categories = Category.all.map{ |cat| [cat.name, cat.id] }
+    @categories = Category.all.map{ |cat| [cat.name, cat.id] }
   end
 
   def create
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :price, :picture)
+      params.require(:product).permit(:name, :price, :category_id, :picture)
     end
 
     def set_product
