@@ -1,21 +1,17 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Ausverkauf", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Wachs", category_path(1) %></li>
-        <li><%= link_to "Accessoires", category_path(2) %></li>
-        <% if logged_in? %>
-          <li><%= current_user.username %></li>
-          <li><%= link_to "Log out", logout_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<nav>
+  <%= link_to "Home", root_path %>
+  <%= link_to "Wachs", category_path(1) %>
+  <%= link_to "Accessoires", category_path(2) %>
+  <% if logged_in? %>
+    Hi, <%= current_user.username %>
+    <%= link_to "Log out", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Log in", login_path %>
+  <% end %>
+</nav>
+<header>
+  <h1>Ausverkauf Winter 2018</h1>
 </header>
 <% if logged_in? %>
-  <div style="text-align: center"><%= link_to "Neues Produkt", new_product_path, class: "btn btn-success" %></div>
+  <div class="adm-new"><%= link_to "Neues Produkt", new_product_path, class: "btn-success" %></div>
 <% end %>

@@ -1,11 +1,13 @@
 <% if logged_in? %>
-  <div style="text-align: center"><%= link_to "Neues Produkt", new_product_path, class: "btn btn-success" %></div>
+  <div class="adm-new" ><%= link_to "Neues Produkt", new_product_path, class: "btn-success" %></div>
 <% end %>
-<footer class="footer">
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><a href="https://angebote.partylite.de/">Shop</a></li>
-    </ul>
-  </nav>
+<footer>
+  <div class="footerlinks">
+    <a href="https://angebote.partylite.de">Shop</a>
+    <a href="https://www.facebook.com/groups/partylitebymelb/">Facebook</a>
+    <a href="https://www.verkaufspartys.net/melanie.bialowons">Verkaufsparties</a>
+  </div>
+  <div class="copyright">
+    Melanie Bialowons - selbstständige Handelsvertreterin
+  </div>
 </footer>
