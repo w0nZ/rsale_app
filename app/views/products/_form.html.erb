@@ -1,53 +1,22 @@
-<div class="container">
-<div class="row">
- <div class="col-xs-12">
-  <%= form_for(@product, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-  <div class="form-group">
-    <div class="control-label col-sm-2">
-      <%= f.label :picture %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="control-label col-sm-2">
-      <%= f.label :category %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.select(:category_id, options_for_select(@categories || Category.all.map { |c| [ c.name, c.id ] }), :prompt => "Select one!", autofocus: true)%>
-    </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-2">
+<div class="form-style">
+  <%= form_for(@product) do |f|%>
+    <%= f.label :picture %>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+
+    <%= f.label :category %>
+    <%= f.select(:category_id, options_for_select(@categories || Category.all.map { |c| [ c.name, c.id ] }), :prompt => "Wähle eine!") %>
+
     <%= f.label :name %>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :name, class: "form-control", placeholder: "Name des Produkts", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-2">
+    <%= f.text_field :name, placeholder: "Name des Produkts" %>
+
     <%= f.label :price %>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_field :price, class: "form-control", placeholder: "Runder Preis", autofocus: true %>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="control-label col-sm-2">
+    <%= f.text_field :price, placeholder: "Runder Preis" %>
+
     <%= f.label :description %>
-   </div>
-   <div class="col-sm-6">
-    <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Beschreibungstext" %>
-   </div>
-  </div>
-  <div class="form-group row">
-   <%= f.submit "Abspeichern", class: 'btn btn-primary' %>
-  </div>
-<% end %>
- </div>
-</div>
+    <%= f.text_area :description, rows: 10, placeholder: "Beschreibungstext" %>
+
+    <%= f.submit "Abspeichern" %>
+  <% end %>
 </div>
 
 <script type="text/javascript">

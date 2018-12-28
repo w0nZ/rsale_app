@@ -3,13 +3,13 @@
 </div>
 <main>
 <% @product.each do |product| %>
-  <div class="product <%= product.id %>">
+  <div class="product">
     <a href="<%= product_path(product) %>"><%= image_tag product.picture.url if product.picture? %></a>
-    <h2><%= product.name %></h2>
-    <div class="price"><%= product.price %>€</div>
-    <p class="messaging">
-      <a href="">via WhatsApp bestellen</a>
-    </p>
+    <div class="product-name"><%= product.name %></div>
+    <div class="product-price"><%= product.price %>€</div>
+    <div class="product-messaging">
+      <a href="<%= build_whatsapp_link("Ich möchte folgendes Produkt erwerben", product_path(product)) %>" class="btn-primary">WhatsApp</a>
+    </div>
   </div>
 <% end %>
 </main>

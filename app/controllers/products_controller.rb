@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-     flash[:notice] = "Product was successfully created"
+     flash[:success] = "Erfolgreich! Produkt erfolgreich angelegt."
      redirect_to product_path(@product)
     else
      render 'new'
@@ -29,17 +29,17 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-     flash[:notice] = "Product was updated"
+     flash[:success] = "Erfolgreich! Das Produkt wurde editiert."
      redirect_to product_path(@product)
     else
-     flash[:notice] = "Product was not updated"
+     flash[:danger] = "Sorry! Das Produkt wurde nicht editiert."
      render 'edit'
     end
   end
 
   def destroy
    @product.destroy
-   flash[:notice] = "Product was deleted"
+   flash[:notice] = "Erfolgreich! Das Produkt wurde entfernt."
    redirect_to products_path
   end
 
