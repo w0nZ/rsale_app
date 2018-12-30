@@ -9,3 +9,4 @@
 #Category Seeding
 Category.create(name: "Wachs")
 Category.create(name: "Accessoires")
+User.create(username: "admin", email: "admin@admin.de", password: "test123!")
