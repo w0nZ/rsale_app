@@ -1,6 +1,7 @@
 module ApplicationHelper
   def last_change
     t = Product.maximum(:updated_at)
+    t ||= Time.new
     t.strftime("%d.%m.%Y %H:%M")
   end
 
