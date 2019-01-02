@@ -1,0 +1,25 @@
+<% provide(:title, "New user") %>
+<div class="category">
+  <h2>Neuen Benutzer anlegen</h2>
+</div>
+
+<div class="form-style">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Benutzer anlegen", class: "btn-primary" %>
+    <% end %>
+
+</div>

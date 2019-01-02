@@ -38,14 +38,23 @@ nav a:hover {
     color: #193157;
 }
 
+/*admin new product*/
+.adm-new {
+  background-color: #193157;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 50px;
+  padding: 10px 10px 0px 10px;
+}
 /*header*/
 header{
   background-color: #fff;
+  margin-top: 50px;
   text-align: center;
   color: #193157;
   box-sizing: border-box;
   position: static;
-  margin-top: 50px;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -130,10 +139,8 @@ header h1{
   border-color: #d0e9c6;
   color: #3c763d;
 }
-/*admin new product*/
-.adm-new {
-  text-align: center;
-}
+/*error messages*/
+
 
 /*Category Beschreibung*/
 .category{

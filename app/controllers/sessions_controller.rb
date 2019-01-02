@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
 
   def new
+    @allCategories = Category.all
   end
 
   def create
+    @allCategories = Category.all
     user = User.find_by(email: params[:session][:email].downcase)
     #logger.debug "Found User ID : #{user.id}"
     if user && user.authenticate(params[:session][:password])

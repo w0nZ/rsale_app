@@ -1,17 +1,24 @@
 <nav>
   <%= link_to "Home", root_path %>
-  <%= link_to "Wachs", category_path(1) %>
-  <%= link_to "Accessoires", category_path(2) %>
+
+  <% @allCategories.each do |cat| %>
+    <%= link_to cat.name, category_path(cat.id) %>
+  <% end %>
   <% if logged_in? %>
-    Hi, <%= current_user.username %>
     <%= link_to "Log out", logout_path, method: :delete %>
+    <%= link_to "Profil", user_path(current_user) %>
+    <%= link_to "Kategorien", categories_path %>
   <% else %>
     <%= link_to "Log in", login_path %>
   <% end %>
 </nav>
+<% if logged_in? %>
+  <div class="adm-new">
+    <%= link_to "Neues Produkt", new_product_path, class: "btn-success" %>
+    <%= link_to "Neuer Benutzer", new_user_path, class: "btn-success" %>
+    <%= link_to "Neue Kategorie", new_category_path, class: "btn-success" %>
+  </div>
+<% end %>
 <header>
   <h1>Ausverkauf</h1>
 </header>
-<% if logged_in? %>
-  <div class="adm-new"><%= link_to "Neues Produkt", new_product_path, class: "btn-success" %></div>
-<% end %>

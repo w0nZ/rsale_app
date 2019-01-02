@@ -5,9 +5,11 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.all.map{ |cat| [cat.name, cat.id] }
+    @allCategories = Category.all
   end
 
   def create
+    @allCategories = Category.all
     @product = Product.new(product_params)
     if @product.save
      flash[:success] = "Erfolgreich! Produkt erfolgreich angelegt."
@@ -19,15 +21,18 @@ class ProductsController < ApplicationController
 
   def index
     @product = Product.all
+    @allCategories = Category.all
   end
 
   def show
+    @allCategories = Category.all
   end
 
   def edit
   end
 
   def update
+    @allCategories = Category.all
     if @product.update(product_params)
      flash[:success] = "Erfolgreich! Das Produkt wurde editiert."
      redirect_to product_path(@product)

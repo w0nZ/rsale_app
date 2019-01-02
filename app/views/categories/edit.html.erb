@@ -1,0 +1,16 @@
+<% provide(:title, "Edit Category") %>
+<div class="category">
+  <h2>Kategorie ändern</h2>
+</div>
+
+<div class="form-style">
+    <%= form_for(@category) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.submit "Änderung speichern", class: "btn-primary" %>
+    <% end %>
+
+</div>

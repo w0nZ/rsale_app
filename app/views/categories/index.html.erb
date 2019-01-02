@@ -2,14 +2,15 @@
 <h2>Alle Produkte</h2>
 </div>
 <main>
-<% @product.each do |product| %>
+  <% @allCategories.each do |cat| %>
   <div class="product">
-    <a href="<%= product_path(product) %>"><%= image_tag product.picture.url if product.picture? %></a>
-    <div class="product-name"><%= product.name %></div>
-    <div class="product-price"><%= product.price %>€</div>
-    <div class="product-messaging">
-      <a href="<%= build_whatsapp_link("Ich möchte folgendes Produkt erwerben", product_path(product)) %>" class="btn-primary">WhatsApp</a>
+    <div class="product-name">
+      <%= link_to cat.name, category_path(cat.id) %>
+    </div>
+    <div class="product-actions">
+     <%= link_to "Edit", edit_category_path(cat), class: "btn-warning" %>
+     <%= link_to "Delete", category_path(cat), method: :delete, data: { confirm: "Are you sure you want to delete this product?"}, class: "btn-error" %>
     </div>
   </div>
-<% end %>
+  <% end %>
 </main>
