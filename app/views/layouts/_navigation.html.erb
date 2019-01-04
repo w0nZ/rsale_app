@@ -5,9 +5,9 @@
     <%= link_to cat.name, category_path(cat.id) %>
   <% end %>
   <% if logged_in? %>
-    <%= link_to "Log out", logout_path, method: :delete %>
     <%= link_to "Profil", user_path(current_user) %>
     <%= link_to "Kategorien", categories_path %>
+    <%= link_to "Log out", logout_path, method: :delete %>
   <% else %>
     <%= link_to "Log in", login_path %>
   <% end %>

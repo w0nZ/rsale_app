@@ -9,7 +9,6 @@
   </div>
   <% if !logged_in? %>
   <div class="product-messaging">
-    <p>Teilen via:</p>
     <a href="<%= build_whatsapp_link("Ich möchte folgendes Produkt erwerben", product_path(@product)) %>" class="btn-primary">WhatsApp</a>
     <a href="<%= build_share_link(product_path(@product)) %>" class="btn-secondary">Link kopieren</a>
   </div>

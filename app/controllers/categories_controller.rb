@@ -1,28 +1,25 @@
 class CategoriesController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :new, :create, :destroy]
+  before_action :set_categories, only: [:new, :create, :index, :show, :edit, :update]
+
   def show
     @category = Category.find(params[:id])
     @product = Product.all
-    @allCategories = Category.all
   end
 
   def index
     logged_in_user
-    @allCategories = Category.all
   end
 
   def new
-    @allCategories = Category.all
     @category = Category.new
   end
 
   def edit
     @category = Category.find(params[:id])
-    @allCategories = Category.all
   end
 
   def update
-    @allCategories = Category.all
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
      flash[:success] = "Erfolgreich! Die Kategorie wurde editiert."
@@ -34,7 +31,6 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @allCategories = Category.all
     @category = Category.new(category_params)
     if @category.save
       redirect_to @category
@@ -52,6 +48,10 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def set_categories
+    @allCategories = Category.all
   end
 
   def logged_in_user

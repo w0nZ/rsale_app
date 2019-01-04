@@ -1,7 +1,7 @@
 <div class="category">
 <h2><%= @category.name %> Produkte</h2>
 </div>
-<main>
+<div class="grid">
 <% @product.where(category_id: @category.id).each do |product| %>
   <div class="product">
     <a href="<%= product_path(product) %>"><%= image_tag product.picture.url if product.picture? %></a>
@@ -12,4 +12,4 @@
     </div>
   </div>
 <% end %>
-</main>
+</div>

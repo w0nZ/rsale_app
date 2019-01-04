@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
+  before_action :set_categories, only: [:new, :create]
 
   def new
-    @allCategories = Category.all
   end
 
   def create
-    @allCategories = Category.all
     user = User.find_by(email: params[:session][:email].downcase)
     #logger.debug "Found User ID : #{user.id}"
     if user && user.authenticate(params[:session][:password])
@@ -25,4 +24,8 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  private
+    def set_categories
+      @allCategories = Category.all
+    end
 end
